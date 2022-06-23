@@ -6,11 +6,11 @@ wrap=1			#planar=0, cylinder=1
 noise=1			#add noise to position
 #kin=0.100		#kin energy/temperature
 spin=0   		#puckers=0, stitches=1, initialize spins height in the right locations
-order=-1 		#AFM=-1, FM=1
-height=0.45		#initialize "spin" height
+order=1 		#AFM=-1, FM=1
+height=-0.45		#initialize "spin" height
 frac=0.1		#dilated bonds 
-L=48
-for kin in 0.100 0.250
+L=24
+for kin in 0.100 0.250 
 do 
 mkdir $kin
 cd $kin 
@@ -33,8 +33,8 @@ sed -i 's/order=-1/order='$order'/g' $file0
 sed -i 's/height=0.45/height='$height'/g' $file0
 sed -i 's/frac=0.1/frac='$frac'/g' $file0
 sed -i 's/Run=1/Run='$run'/g' $file0
-#use your own script to submit job to the cluster
-#sbatch ../../singularity_hoomd.sh
+#use your script to submit the job to your cluster
+#sbatch ../../singularity_cpu.sh
 cd ..
 done
 cd ..

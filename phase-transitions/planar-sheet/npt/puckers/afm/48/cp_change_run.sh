@@ -1,8 +1,8 @@
-file0=in.cyl_npt.py	#file name 
+file0=in.sheet_npt.py	#file name 
 kappa=2.0		#bending 		
 kstretch=100  		#harmonic spring coefficient  
 strain=0	     	#pre strain before relaxation  
-wrap=1			#planar=0, cylinder=1
+wrap=0			#planar=0, cylinder=1
 noise=1			#add noise to position
 #kin=0.100		#kin energy/temperature
 spin=0   		#puckers=0, stitches=1, initialize spins height in the right locations
