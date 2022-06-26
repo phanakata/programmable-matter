@@ -1,6 +1,12 @@
 ## Overview 
 This project's directory structure is as follows:
-* ```phase-transitions/```:
+* ```lattice-configurations/```:
+* ```planar-sheet/```:
+* ```cylinder-sheet/```:
+* ```analysis/```:
+
+
+
 
 ## To download 
 git clone https://github.com/phanakata/programmable-matter/phase-transitions
