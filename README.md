@@ -18,7 +18,7 @@ Paul Hanakata
 ## Citation
 
 If you use this package/code/dataset, build on  or find our research is useful for your work please cite 
-```bash
+```
 @article{PhysRevLett.128.075902,
   title = {Anomalous Thermal Expansion in Ising-like Puckered Sheets},
   author = {Hanakata, Paul Z. and Plummer, Abigail and Nelson, David R.},
