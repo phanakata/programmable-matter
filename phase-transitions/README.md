@@ -2,7 +2,7 @@
 This project's directory structure is as follows:
 * ```lattice-configurations/```:
 * ```planar-sheet/```:
-* ```cylinder-sheet/```:
+* ```cylinder/```:
 * ```analysis/```:
 
 
