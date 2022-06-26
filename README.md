@@ -8,7 +8,8 @@ See our published papers:
 "> **Paul Z. Hanakata**, Abigail P. Plummer, David R. Nelson , *Anomalous thermal expansion in Ising-like puckered sheets*, Phys. Rev. Lett, 128, 075902  (2022).</a>
 
 ## Overview 
-
+This project's directory structure is as follows:
+* ```phase-transitions/```:
 
 ## To download 
 git clone https://github.com/phanakata/programmable-matter
