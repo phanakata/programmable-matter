@@ -11,6 +11,8 @@ This project's directory structure is as follows:
 ## To download 
 git clone https://github.com/phanakata/programmable-matter/phase-transitions
 
+## Tehnical 
+
 ## Authors
 Paul Hanakata
 
