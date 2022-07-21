@@ -12,9 +12,9 @@ This project's directory structure is as follows:
 git clone https://github.com/phanakata/programmable-matter/phase-transitions
 
 ## Technical 
-  1. Molecular Dynamics Simulations 
-    1. HOOMD-blue 2.8.1 CUDA (10.1) DOUBLE HPMC_MIXED TBB SSE SSE2 
-    2. HOOMD run either on CPU or Tesla V100-PCIE-32GB  80 SM_7.0 @ 1.38 GHz, 32510 MiB DRAM, MNG
+* Molecular Dynamics Simulations 
+  * HOOMD-blue 2.8.1 CUDA (10.1) DOUBLE HPMC_MIXED TBB SSE SSE2 
+  * HOOMD run either on CPU or Tesla V100-PCIE-32GB  80 SM_7.0 @ 1.38 GHz, 32510 MiB DRAM, MNG
 
 
 ## Authors
