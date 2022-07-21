@@ -7,7 +7,7 @@ noise=1			#add noise to position
 #kin=0.100		#kin energy/temperature
 spin=0   		#puckers=0, stitches=1, initialize spins height in the right locations
 order=1 		#AFM=-1, FM=1
-height=-0.45		#initialize "spin" height
+height=-0.45		#initialize "spin" height. NOTE use -0.45 such that puckers point out of the plane of cyl
 frac=0.1		#dilated bonds 
 L=24
 for kin in 0.100 0.250 
