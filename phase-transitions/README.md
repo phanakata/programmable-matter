@@ -1,9 +1,9 @@
 ## Overview 
 This project's directory structure is as follows:
-* ```lattice-configurations/```:
-* ```planar-sheet/```:
-* ```cylinder/```:
-* ```analysis/```:
+* ```lattice-configurations/```: contains initial lattice configurations 
+* ```planar-sheet/```: NPT and NPH simulations for planar sheets
+* ```cylinder/```: NPT and NPH simulations for cylinders 
+* ```analysis/```: contains analysis codes (C++ and python) 
 
 
 
