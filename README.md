@@ -7,7 +7,7 @@ See our published papers:
 1. <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.121.255304" style="color:#268cd7
 "> **Paul Z. Hanakata**, Abigail P. Plummer, David R. Nelson , *Anomalous thermal expansion in Ising-like puckered sheets*, Phys. Rev. Lett, 128, 075902  (2022).</a>
 * <a href="" style="color:#268cd7
-"> Abigail P. Plummer*, **Paul Z. Hanakata***, David R. Nelson , *Curvature as an external field in mechanical antiferromagnets*, To be submitted  (2022).</a>
+"> Abigail Plummer*, **Paul Z. Hanakata***, David R. Nelson , *Curvature as an external field in mechanical antiferromagnets*, To be submitted  (2022).</a>
 
 
 ## Overview 
