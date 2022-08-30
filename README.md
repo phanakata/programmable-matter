@@ -12,7 +12,7 @@ See our published papers:
 
 ## Overview 
 This project's directory structure is as follows:
-* ```phase-transitions/```: a package contains HOOMD scripts and analysis code to study sheets with bistable units
+* ```phase-transitions/```: a package contains HOOMD scripts and analysis code to study reprogrammble sheets with bistable units
 
 ## To download 
 git clone https://github.com/phanakata/programmable-matter
