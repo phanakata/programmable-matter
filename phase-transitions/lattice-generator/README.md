@@ -1,6 +1,8 @@
 #lattice-generator
+
 To run HOOMD simulation you need provide initial positions of nodes. You can either create within HOOMD or create your owen cofiguration generator. 
 Lattice generator for square lattice (LG-square) with defects are stable. The rests are under development. 
+
 #directory 
 lattice-generator/:
 * configurations/: (contain dat files for gsd initial configuration + gsd files)
