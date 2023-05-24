@@ -4,11 +4,11 @@ To run HOOMD simulation you need provide initial positions of nodes. You can eit
 Lattice generator for square lattice (LG-square) with defects are stable. The rests are under development. 
 
 ## directory 
-lattice-generator/:
-* configurations/: (contain dat files for gsd initial configuration + gsd files)
-* LG-square/:lattice generation for square + defects (STABLE)
-* LG-tringular-pbc/: lattice generation for triangular lattice (under development)
-* LG-sphere/: lattice generation for sphere (not developed yet)
+```lattice-generator/```:
+* ```configurations/```: (contain dat files for gsd initial configuration + gsd files)
+* ```LG-square/```:lattice generation for square + defects (STABLE)
+* ```LG-tringular-pbc/```: lattice generation for triangular lattice (under development)
+* ```LG-sphere/```: lattice generation for sphere (not developed yet)
 
 ## LG-square
 1. Use 'make' to compile cpp codes
