@@ -17,7 +17,7 @@ This project's directory structure is as follows:
 ## To download 
 git clone https://github.com/phanakata/programmable-matter
 
-## Authors
+## Code developer 
 Paul Hanakata
 
 ## Citation
@@ -39,12 +39,27 @@ If you use this package/code/datasets, build on  or find our research is useful 
   url = {https://link.aps.org/doi/10.1103/PhysRevLett.128.075902}
 }
 ```
-
+```
+@article{PhysRevMaterials.6.115203,
+  title = {Curvature as an external field in mechanical antiferromagnets},
+  author = {Plummer, Abigail and Hanakata, Paul Z. and Nelson, David R.},
+  journal = {Phys. Rev. Mater.},
+  volume = {6},
+  issue = {11},
+  pages = {115203},
+  numpages = {18},
+  year = {2022},
+  month = {Nov},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevMaterials.6.115203},
+  url = {https://link.aps.org/doi/10.1103/PhysRevMaterials.6.115203}
+}
+```
 
 ## References
 * <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.121.255304" style="color:#268cd7
 "> **Paul Z. Hanakata**, Abigail P. Plummer, David R. Nelson , *Anomalous thermal expansion in Ising-like puckered sheets*, Phys. Rev. Lett, 128, 075902  (2022).</a>
-* <a href="https://arxiv.org/abs/2208.01085" style="color:#268cd7
-"> Abigail Plummer*, **Paul Z. Hanakata***, David R. Nelson , *Curvature as an external field in mechanical antiferromagnets*, arXiv:2208.01085  (2022).</a>
+* <a href="https://journals.aps.org/prmaterials/abstract/10.1103/PhysRevMaterials.6.115203" style="color:#268cd7
+"> Abigail Plummer*, **Paul Z. Hanakata***, David R. Nelson , *Curvature as an external field in mechanical antiferromagnets*, Phys. Rev. Materials 6, 115203 (2022).</a>
 
 
