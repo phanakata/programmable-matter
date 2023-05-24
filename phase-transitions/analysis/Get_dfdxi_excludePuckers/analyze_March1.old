@@ -1,0 +1,270 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include "stdint.h"
+#include "variables.h"
+#include "analyze.h"
+
+//double fRq=0, fIq=0, qx=0, qy=0;
+double fq2[NMAX]; 
+
+
+double avg_hgt()
+{
+   double hgt=0;
+   int node_cnt=0;
+   for(int i=0;i<N;i++)
+   {
+	//if(particleID[i]==0 || particleID[i]==4)
+	//{
+	hgt+=position[3*i+2];
+	node_cnt++;
+	//}
+   }
+   return (hgt/node_cnt);
+}
+
+/*	Average <h^2> = 1/N * Sum_i(z_i - <z>)^2	*/
+double avg_hgt_sq()
+{
+   double hgtSq=0;
+   double h_avg = avg_hgt();
+   int node_cnt=0;
+   for(int i=0;i<N;i++)
+   {
+	//if(particleID[i]==0 || particleID[i]==4)
+	//{
+        	hgtSq+=pow((position[3*i+2]-h_avg),2);
+		node_cnt++;
+	//}
+   }
+   return (hgtSq/node_cnt);
+   
+}
+
+
+
+
+int initialize_fq2()
+{
+  for(int i=0;i<N;i++)
+    {
+      fq2[i]=0;
+    }
+  return 0;
+}
+
+
+double sum_fq2()
+{
+double sum=0; 
+for(int i=0; i<N; i++)
+	{
+	sum +=fq2[i];		
+	}
+
+return sum;
+}
+
+double sum_fq2_1D()
+{
+double sum=0; 
+for(int i=0; i<NX; i++)
+        {
+        sum +=fq2[i];
+        }
+
+return sum;
+}
+
+
+
+double sum_q2fq2()
+{
+double sum=0, qx=0., qy=0.;
+double delta_q = 2.*M_PI/(double)NX;
+int nx=0, ny=0, count_q=0;
+for (nx=-NX/2; nx<NX/2; nx++)
+    {
+      for (ny=-NY/2; ny<NY/2; ny++)
+        {
+          qx=delta_q * (double) nx;
+          qy=delta_q * (double) ny;
+
+
+        sum +=(qx*qx+qy*qy)*fq2[count_q];
+	count_q++;
+        }
+}
+return sum;
+}
+
+
+
+double sum_q2fq2_1D()
+{
+double sum=0, qx=0., qy=0.;
+double delta_q = 2.*M_PI/(double)NX;
+int nx=0, ny=0, count_q=0;
+for (nx=-NX/2; nx<NX/2; nx++)
+    {
+        qx=delta_q * (double) nx;
+        sum +=(qx*qx)*fq2[count_q];
+        count_q++;
+    }
+return sum;
+}
+
+
+int calculate_fq2_1D()
+{
+  double delta_q = 2.*M_PI/(double)NX;
+  double fRq=0, fIq=0, qx=0., qy=0., xx=0., yy=0., zz=0.;
+  int count_q =0, nx=0, ny=0;
+  double hcm=avg_hgt();
+  for (nx=-NX/2; nx<NX/2; nx++)
+    {
+	  qx=delta_q * (double) nx;
+	  fRq=0.;
+          fIq=0.; 
+	  for(int i=0;i<N;i++)
+	    {          
+	      xx = position[3*i];
+	      zz = position[3*i+2]-hcm;
+	      
+	      fRq += zz * cos (qx * xx);
+	      fIq += zz * sin (qx * xx);
+	      
+	    }
+	  fq2[count_q]+=fRq*fRq + fIq*fIq;   
+          count_q++;
+	}
+  return 0;
+}
+
+
+int calculate_fq2()
+{
+  double delta_q = 2.*M_PI/(double)NX;
+  double fRq=0, fIq=0, qx=0., qy=0., xx=0., yy=0., zz=0.;
+  int count_q =0, nx=0, ny=0;
+  double hcm=avg_hgt();
+  for (nx=-NX/2; nx<NX/2; nx++)
+    {
+      for (ny=-NY/2; ny<NY/2; ny++)
+        {
+          qx=delta_q * (double) nx;
+          qy=delta_q * (double) ny;
+
+          fRq=0.;
+          fIq=0.;
+          for(int i=0;i<N;i++)
+            {
+              xx = position[3*i];
+              yy = position[3*i+1];
+              zz = position[3*i+2]-hcm;
+
+
+              fRq += zz * cos (qx * xx + qy * yy);
+              fIq += zz * sin (qx * xx + qy * yy);
+
+            }
+          fq2[count_q]+=fRq*fRq + fIq*fIq;
+          count_q++;
+        }
+    }
+  return 0;
+}
+
+
+
+
+int avg_fq2(FILE *fq2data,int tot_frames)
+{
+   if (tot_frames == 0)
+   {
+        printf("Average fq2 computation is dividing by Zero\n");
+	return 0;
+   }
+   double delta_q = 2.*M_PI/((double)NX);
+   double qx=0., qy=0.; 
+   int count_q =0, nx=0, ny=0;
+   for (nx=-NX/2; nx<NX/2; nx++)
+    {
+      for (ny=-NY/2; ny<NY/2; ny++)
+	{
+	  qx=delta_q * (double) nx;
+	  qy=delta_q * (double) ny;
+
+	  fprintf(fq2data, "%.8f\t%.8f\t%.8f\n", qx, qy, fq2[count_q]/(NX*NX*NY*NY)/tot_frames);
+	  count_q++;
+	}
+      
+    }
+   
+   return 0;
+}
+
+
+
+int avg_fq2_1D(FILE *fq2data,int tot_frames)
+{
+   if (tot_frames == 0)
+   {
+        printf("Average fq2 computation is dividing by Zero\n");
+        return 0;
+   }
+   double delta_q = 2.*M_PI/((double)NX);
+   double qx=0., qy=0.;
+   int count_q =0, nx=0, ny=0;
+   for (nx=-NX/2; nx<NX/2; nx++)
+    {
+          qx=delta_q * (double) nx;
+
+          fprintf(fq2data, "%.8f\t%.8f\n", qx, fq2[count_q]/(NX*NX)/tot_frames);
+          count_q++;
+
+    }
+
+   return 0;
+}
+
+
+
+
+
+//double avg_h()
+//{
+
+//  double hcm=0, h2=0, min=1000, max=-1000, xx=0, yy=0, zz=0;
+//  int tot_node=0;
+//  for(int i=0;i<N;i++)
+//    {          
+      //xx=position[3*i];
+      //pzh gsd reader doesn't recognize different particle ID , all particle ID=0 
+      //if(particleID[i]==0)
+      //if (i==N/2)
+	//{
+	//printf ("%lf\n", position[3*i+2]);
+	//}      
+//    hcm+=position[3*i+2];
+//    tot_node++;
+      
+      //if (xx>max)
+	//{
+	 // max =xx;
+	//}
+      
+      //if (xx<min)
+//	{
+//	  min =xx;
+//	}
+      
+     
+//  }
+  
+  //printf ("%lf\n", max-min);
+  //hcm = hcm/tot_node;
+  //return hcm;
+//}

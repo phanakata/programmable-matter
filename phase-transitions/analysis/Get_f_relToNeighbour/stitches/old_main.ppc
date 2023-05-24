@@ -1,0 +1,171 @@
+#include <stdio.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <math.h>
+#include "stdint.h"
+#include "gsd.h"
+#include "variables.h"
+#include "gsd_read.h"
+#include "analyze.h"
+
+  int NX,NY,RUN,afm,spx,spy;
+  double KAPPA;
+  int STEPS,FRAMES,CLONE;
+
+int main(int argc, char **argv)
+{
+  FILE *therm,*lat;
+  char init_strip[256],trajectory_file[256],thermalpos_file[256],lattice_file[256];
+  int frame_cnt=0;
+  double slider_thermal=0, hcm=0;
+
+   switch (argc){
+     case 9:
+       sscanf(argv[1],"%d",&NX);    
+       sscanf(argv[2],"%d",&NY);
+       sscanf(argv[3],"%lf",&KAPPA);
+       sscanf(argv[4],"%d",&RUN);
+       sscanf(argv[5],"%d",&STEPS);
+       sscanf(argv[6],"%d",&spx);
+       sscanf(argv[7],"%d",&spy);
+       sscanf(argv[8],"%d",&afm); 
+       break;
+     default:
+       print_and_exit("Usage: %s NX NY KAPPA RUN STEPS spx spy afm\n",
+           argv[0]);
+   }
+  FRAMES=STEPS/PERIOD;
+  //printf("FRAMES: %d\n", FRAMES);
+  // Init_strip.gsd filepath
+  //sprintf(init_strip,"../Sim_dump_ribbon/init_strip_L%d_W%d.gsd",NX,NY);
+  //printf("Init_strip.gsd : %s\n",init_strip);
+  //load_gsd(init_strip,0); 
+  //printf("#bonds %d #dihedrals %d \n",Nb,Nd);
+
+  for(int run=RUN;run<=RUN;run+=1)
+  {
+	// Trajectory.gsd filepath
+	//printf("run: %d\t", run);
+	//sprintf(trajectory_file,"../Sim_dump_ribbon/L%d/W%d/%d/traj_clamped.gsd",NX,NY,run);
+	sprintf(trajectory_file,"traj.gsd");
+	frame_cnt=0;
+	for(int frames=FRAMES/2;frames<FRAMES;frames++)
+	{
+		load_gsd(trajectory_file,frames);
+		hcm=avg_slider_pos();
+		slider_thermal+=hcm;
+		printf("%d\t%lf\n", frames, hcm);
+		frame_cnt++;
+	}
+	slider_thermal/=frame_cnt;
+	//printf("%lf", slider_thermal);
+  }
+  /*	Average thermalised position of right end of the ribbon	*/
+  //slider_thermal/=frame_cnt;
+  //printf ("Thermal position of right end %.8f\n",slider_thermal);
+
+  
+  /*	fixing last frame from each run at the thermalised position	*/
+  //double frame_slider=0;
+  //int slider_node=0;
+  //double delta_pos=0;
+  //double shifted_frame_slider=0;
+  //int i;
+
+  //for(int run=1;run<=RUN;run++)
+  //{
+	// Trajectory.gsd filepath
+  //      sprintf(trajectory_file,"../Sim_dump_ribbon/L%d/W%d/k%.1f/r%d/traj.gsd",NX,NY,KAPPA,run);
+  //  for(int k=0;k<=CLONE;k++)
+  //  {
+  //	frame_slider=0;
+  //      slider_node=0;
+  //      delta_pos=0;
+  //      shifted_frame_slider=0;
+	
+  //	sprintf(thermalpos_file,"../Sim_dump_ribbon/L%d/W%d/k%.1f/r%d/thermalPosFrame.bin",NX,NY,KAPPA,run+RUN*k);
+//	printf("thermalposition file : %s\n",thermalpos_file);
+//	therm = fopen(thermalpos_file, "wb");
+//	if (therm == NULL)
+  // 	{
+    //    	print_and_exit("Could Not Open File to write thermalised position data");
+   //	}
+
+//	sprintf(lattice_file,"../Sim_dump_ribbon/L%d/W%d/k%.1f/r%d/lattice_thermal.dat",NX,NY,KAPPA,run+RUN*k);
+//        printf("Lattice file : %s\n",lattice_file);
+  //      lat = fopen(lattice_file, "w");
+   //     if (lat == NULL)
+     //   {
+         //       print_and_exit("Could Not Open File to write thermalised position data");
+       // }
+
+
+	//load_gsd(trajectory_file,FRAMES-k-1);
+
+        /*	Slider position of the frame read above		*/
+	//for(i=0;i<N;i++)
+	//{
+        //	if(particleID[i]==3)
+        //	{
+        //        	frame_slider+=position[3*i];
+        //        	slider_node++;
+       // 	}
+   	//}
+	//frame_slider/=slider_node; /*	Average position of right end of the frame	*/
+	//printf ("Slider position of frame %.8f\n",frame_slider);
+	//delta_pos = slider_thermal - frame_slider;
+
+	/*	Shifting right end nodes to the thermalized position 	*/
+	//slider_node=0;
+	//for(i=0;i<N;i++)
+        //{
+         //       if(particleID[i]==3)
+         //       {
+         //               position[3*i] = position[3*i] + delta_pos; //shifting x coordinates
+	//		shifted_frame_slider += position[3*i];
+        //                slider_node++;
+        //        }
+        //}
+	//shifted_frame_slider /= slider_node;
+	//printf ("Frame slider clamped at %.8f shifted from %.8f to equilibrium position %.8f\n\n",shifted_frame_slider,frame_slider,slider_thermal);
+	
+	/* 	writing position data to binary file		*/
+	//	First line has number of nodes of the system
+	//fwrite(&N,sizeof(int),1,therm);
+	//fwrite(position,sizeof(double),N,therm);
+	//fwrite(position,sizeof(position),1,therm);
+
+	/*	Writing lattice data to file	*/
+	/*   Total Particles         */
+	//fprintf(lat,"%d\n",N);
+	/*   Particle Position in THERMALIZED configuration  */
+	//for(i=0;i<N;i++)
+        //   {
+        //        fprintf(lat,"%.8f,%.8f,%.8f\n",position[3*i],position[3*i+1],position[3*i+2]);
+        //   }
+	/*   Printing the Bond pairs */
+	//fprintf(lat,"%d\n",Nb);
+	//for(i=0;i<Nb;i++)
+        //   {	
+	//	fprintf(lat,"%d,%d\n",bondGroup[2*i],bondGroup[2*i+1]);			
+	//   }
+	/*   Printing the Dihedrals  */
+        //fprintf(lat,"%d\n",Nd);
+	//for(i=0;i<Nd;i++)
+	//{
+	//	fprintf(lat,"%d,%d,%d,%d\n",dihedralGroup[4*i],dihedralGroup[4*i+1],dihedralGroup[4*i+2],dihedralGroup[4*i+3]);
+	//}
+        /*   Printing particle type Ids      */
+	//for(i=0;i<N;i++)
+	//{//
+//		fprintf(lat,"%u\n",particleID[i]);	
+//	}
+//
+	//fclose(lat);
+	//fclose(therm);	
+ //    }
+
+  //}
+
+  return 0;
+}

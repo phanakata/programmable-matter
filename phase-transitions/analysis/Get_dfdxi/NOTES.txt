@@ -1,0 +1,6 @@
+07/27/2021 
+* accuracy improved for larger systems 
+* shifting by delta/2, doesn't do much
+* centered difference 4th order doesn't do much 
+* it's important to include extra grid 
+* for empty grid, using average of corners doesn't really help 
