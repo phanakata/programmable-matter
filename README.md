@@ -1,13 +1,14 @@
 # Programmable Matter 
 
-This package is still under developement. More features will be added soon.
+This package allows you to (i) generate lattice, (ii) convert lattice file to GSD file, (iii) run HOOMD simulations, and (iv)
+perform many analyses. Most features (based on papers below) are stable and some new features are under development. 
 
 ## Paper 
 See our published papers: 
 1. <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.121.255304" style="color:#268cd7
 "> **Paul Z. Hanakata**, Abigail Plummer, David R. Nelson , *Anomalous thermal expansion in Ising-like puckered sheets*, Phys. Rev. Lett, 128, 075902  (2022).</a>
-2. <a href="https://arxiv.org/abs/2208.01085" style="color:#268cd7
-"> Abigail Plummer*, **Paul Z. Hanakata***, David R. Nelson , *Curvature as an external field in mechanical antiferromagnets*, arXiv:2208.01085   (2022).</a>
+2. <a href="https://journals.aps.org/prmaterials/abstract/10.1103/PhysRevMaterials.6.115203" style="color:#268cd7
+"> Abigail Plummer*, **Paul Z. Hanakata***, David R. Nelson , *Curvature as an external field in mechanical antiferromagnets*, Phys. Rev. Materials 6, 115203 (2022).</a>
 
 
 ## Overview 
@@ -38,8 +39,6 @@ If you use this package/code/datasets, build on  or find our research is useful 
   doi = {10.1103/PhysRevLett.128.075902},
   url = {https://link.aps.org/doi/10.1103/PhysRevLett.128.075902}
 }
-```
-```
 @article{PhysRevMaterials.6.115203,
   title = {Curvature as an external field in mechanical antiferromagnets},
   author = {Plummer, Abigail and Hanakata, Paul Z. and Nelson, David R.},
