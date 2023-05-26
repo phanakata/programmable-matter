@@ -38,6 +38,20 @@ If you use this package/code/dataset, build on  or find our research is useful f
   doi = {10.1103/PhysRevLett.128.075902},
   url = {https://link.aps.org/doi/10.1103/PhysRevLett.128.075902}
 }
+@article{PhysRevMaterials.6.115203,
+  title = {Curvature as an external field in mechanical antiferromagnets},
+  author = {Plummer, Abigail and Hanakata, Paul Z. and Nelson, David R.},
+  journal = {Phys. Rev. Mater.},
+  volume = {6},
+  issue = {11},
+  pages = {115203},
+  numpages = {18},
+  year = {2022},
+  month = {Nov},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevMaterials.6.115203},
+  url = {https://link.aps.org/doi/10.1103/PhysRevMaterials.6.115203}
+}
 ```
 
 
